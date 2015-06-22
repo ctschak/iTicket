@@ -1,0 +1,25 @@
+{
+    "renderForm":true,
+    "form":{
+        "attributes":{
+            "action":"",
+            "method":"post"
+        },
+        "buttons":{
+            "submit":{},
+            "reset":{}
+        }
+    },
+    "fields":{
+        "name":{
+            "hideInitValidationError" : true
+        },
+        "member":{
+            "rightLabel":"Alpaca Club Member"
+        },
+        "address":{
+            "type":"address",
+            "addressValidation":true
+        }       
+    }
+}

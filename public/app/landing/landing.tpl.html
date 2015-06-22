@@ -1,0 +1,29 @@
+<div ng-controller="landingCtrl">
+	<h3 class="block-title">Area Table</h3>
+	<!-- button class="btn btn-alt m-r-5"></button -->
+	<button class="btn btn-xs btn-alt m-r-5" ng-click="getAreas()"><strong>Click Here for Server Call</strong></button>
+	<div tabindex="5003" style="overflow: hidden;" class="table-responsive overflow" >
+	    <table class="table table-bordered table-hover tile">
+	        <thead>
+	            <tr>
+	                <th>Area ID</th>
+	                <th>Area Name</th>
+	                <th>Latitude</th>
+	                <th>Longitude</th>
+	                <th>Pin Code</th>
+	                <th>Location ID</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="area in allarea">
+	                <td>{{area.id}}</td>
+	                <td>{{area.areaName}}</td>
+	                <td>{{area.latitude}}</td>
+	                <td>{{area.longitude}}</td>
+	                <td>{{area.pincode}}</td>
+	                <td>{{area.locationId}}</td>
+	            </tr>
+	        </tbody>
+	    </table>
+	</div>
+</div>            

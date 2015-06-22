@@ -1,0 +1,17 @@
+{
+    "name": "Joe Adams",
+    "age": 50,
+    "gender": "Male",
+	"photo": "",
+    "member": true,
+	"phone": "(123)456-7890",
+    "address": {
+        "street": [
+            "100 Main Street",
+            "Suite 200"
+        ],
+        "city": "Burlington",
+        "state": "MA",
+        "zip": "18210"
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "title":"Proposed Insured Details",
+    "description":"Proposed Insured/Owner",
+    "type":"object",
+    "properties":{
+        "name":{
+            "title":"Name",
+            "description":"Enter your full name.",
+            "type":"string"
+        },
+        "address":{
+            "title":"Address",
+            "type":"any"
+        },
+        "dob":{
+            "title":"Date of Birth",
+            "description":"Enter your DOB.",
+            "type":"string"
+        },
+        "email":{
+            "title":"Email",
+            "description":"Email",
+            "type":"string"
+        },
+        "place":{
+            "title":"Place of Birth",
+            "description":"Place of Birth",
+            "type":"string"
+        },
+        "ssn":{
+            "title":"SSN",
+            "type":"string",
+            "description":"SSN"
+        },
+        "income":{
+            "title":"Earned Annual Income",
+            "type":"string",
+            "description":"Earned Annual Income"
+        },
+        "phone":{
+            "title":"Home Phone",
+            "type":"string",
+			"format":"phone"
+        }
+    }
+}

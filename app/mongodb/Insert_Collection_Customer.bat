@@ -1,0 +1,1 @@
+mongoimport --db csrdb --collection Customer --drop --file customer.json --jsonArray
