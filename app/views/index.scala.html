@@ -12,10 +12,9 @@
 	<!-- CSS -->
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("css/bootstrap.min.css")">
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("css/bootstrap-responsive.min.css")">
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("vendor/font-awesome-4.3.0/css/font-awesome.min.css")">
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("css/font-awesome.css")">
 	
 	<!-- New Design/Template -->
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600")">
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("css/pages/dashboard.css")">
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("css/style.css")">
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("css/pages/signin.css")">
@@ -34,10 +33,10 @@
 </head>
 
 <body>
-	<div ng-include src="'app/common/header-login.html'"></div>
-    <!-- AnuglarJS Views will be injected in the main-container -->  
+	
+	<!-- AnuglarJS Views will be injected in the main-container -->  
     <div ui-view> </div>
-	<div ng-include src="'app/common/footer.html'"></div>
+	
 
 
 	<!-- Javascript Libraries -->
@@ -47,13 +46,14 @@
 	<script src="@routes.Assets.at("vendor/angular-ui-router/release/angular-ui-router.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("vendor/angular-sanitize/angular-sanitize.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("vendor/angular-resource/angular-resource.js")" type="text/javascript"></script>
+	<!-- <script src="@routes.Assets.at("vendor/angular-messages/angular-messages.js")" type="text/javascript"></script> -->
 	
 	<!-- New UI Scripts Starts -->
 	<script src="@routes.Assets.at("vendor/excanvas.min.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("vendor/chart.min.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("vendor/full-calendar/fullcalendar.min.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("vendor/base.js")" type="text/javascript"></script>
-	<script src="@routes.Assets.at("vendor/calendar.js")" type="text/javascript"></script>
+	<!-- <script src="@routes.Assets.at("vendor/calendar.js")" type="text/javascript"></script> -->
 	<script src="@routes.Assets.at("vendor/signin.js")" type="text/javascript"></script>
 	<!-- New UI Scripts Ends -->
 	
@@ -68,6 +68,7 @@
 	<script src="@routes.Assets.at("app/landing/landingService.js")" type="text/javascript"></script>
     <script src="@routes.Assets.at("app/homepage/homepageCtrl.js")" type="text/javascript"></script>
 	<script src="@routes.Assets.at("app/homepage/homepageService.js")" type="text/javascript"></script>    
+	<script src="@routes.Assets.at("app/common/commonServices.js")" type="text/javascript"></script>    
 	
        
 </body>

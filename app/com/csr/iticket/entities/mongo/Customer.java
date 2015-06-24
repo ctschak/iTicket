@@ -18,10 +18,6 @@ public class Customer {
 	public String first_name;
 	public String last_name;
 	@Required
-	public String user_name;
-	@Required
-	public String password;
-	@Required
 	public String email;
 	@Required
 	public Integer active;
@@ -30,6 +26,19 @@ public class Customer {
 	public String phone;
 	@Required
 	public Integer ticket_id;
+	@Required
+	public String issue_description;
+
+	public String ticket_comments;
+	@Required
+	public Integer agent_id;
+	@Required
+	public Integer assigned_to;
+	@Required
+	public String status;
+	
+	
+	
 	public Integer getTicket_id() {
 		return ticket_id;
 	}
@@ -81,13 +90,7 @@ public class Customer {
 
 
 
-	public String ticket_comments;
-	@Required
-	public Integer agent_id;
-	@Required
-	public Integer assigned_to;
-	@Required
-	public String status;
+	
 	
 	
 	
@@ -131,26 +134,6 @@ public class Customer {
 	}
 
 
-	public String getUser_name() {
-		return user_name;
-	}
-
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
 	public String getEmail() {
 		return email;
 	}
@@ -189,6 +172,16 @@ public class Customer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public String getIssue_description() {
+		return issue_description;
+	}
+
+
+	public void setIssue_description(String issue_description) {
+		this.issue_description = issue_description;
+	}
+
 
 
 	

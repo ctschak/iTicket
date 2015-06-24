@@ -40,7 +40,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider ) {
     	;
 
         //Re-directs
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/login');
 
 });
 mainApp.run(function ($log, $rootScope, $state, $urlRouter,$location) { // Inject Service to load data

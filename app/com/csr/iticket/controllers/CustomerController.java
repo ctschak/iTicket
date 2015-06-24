@@ -16,8 +16,8 @@ public class CustomerController extends Controller{
 	CustomerService customerService;
 	
 	//@Transactional
-	public Result getAllCustomers(){
-		return ok(Json.toJson(customerService.getAllCustomers()));
+	public Result getAllTickets(){
+		return ok(Json.toJson(customerService.getAllTickets()));
 	}
 	
 }

@@ -1,4 +1,193 @@
-<div class="iride-homepage-background">
-
-
+<div ng-include  src="'app/common/header.html'"></div>
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+      <ul class="mainnav">
+        <li class="active"><a href="#"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
+        <li><a href="#"><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
+      </ul>
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /subnavbar-inner --> 
 </div>
+
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span13">
+        	<div class="span6">
+				<div class="widget widget-nopad">
+		            <div class="widget-header"> <i class="icon-list-alt"></i>
+		              <h3> Today's Stats</h3>
+		            </div>
+		            <!-- /widget-header -->
+		            <div class="widget-content">
+		              <div class="widget big-stats-container">
+		                <div class="widget-content">
+		                 <div id="big_stats" class="cf">
+		                    <div class="stat"><h2>Open</h2><i class="icon-inbox"></i> <span class="value">{{(tickets|filter:{status:"open"}).length}}</span> </div>
+		                    <!-- .stat -->
+		                    
+		                    <div class="stat"><h2>Assigned</h2> <i class="icon-share-alt"></i> <span class="value">{{(tickets|filter:{status:"assigned"}).length}}</span> </div>
+		                    <!-- .stat -->
+		                    
+		                    <div class="stat"><h2>Re-Opened</h2> <i class="icon-repeat"></i> <span class="value">{{(tickets|filter:{status:"reopened"}).length}}</span> </div>
+		                    <!-- .stat -->
+		                   
+		                    <div class="stat"><h2>Closed</h2> <i class="icon-thumbs-up"></i> <span class="value">{{(tickets|filter:{status:"closed"}).length}}</span> </div>
+		                    <!-- .stat --> 
+		                  </div>
+		                </div>
+		                <!-- /widget-content --> 
+		                
+		              </div>
+	             </div>
+	          </div>
+          </div>
+          <!-- /widget -->
+          <div class="span5">
+			  <div class="widget widget-table action-table">
+	            <div class="widget-header"> <i class="icon-th-list"></i>
+	              <h3>Ticket List</h3>
+	            </div>
+	            <!-- /widget-header -->
+	            <div class="widget-content">
+	              <table class="table table-striped table-bordered">
+	                <thead>
+	                  <tr>
+	                    <th class="shortcuts"> Ticket Id </th>
+	                    <th> Issue Description</th>
+	                    <th> Status </th>
+	                    <th> View/Edit</th>
+	                  </tr>
+	                </thead>
+	                <tbody>
+	                  <tr ng-repeat="ticket in tickets">
+	                    <td> {{ticket.ticket_id}} </td>
+	                    <td> {{ticket.issue_description}}  </td>
+	                    <td> {{ticket.status}}  </td>
+	                    <td class="td-actions">
+	                    	<a href="javascript:;" class="btn  btn-success" ng-click="viewTicket = ticket;"><i class="btn-icon-only icon-edit "> </i></a>
+	                    	<!-- <a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a> --></td>
+	                  </tr>
+	                  
+	                
+	                </tbody>
+	              </table>
+	            </div>
+	            <!-- /widget-content --> 
+	          </div>
+	         </div>
+        </div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+      <div class="row">
+        <div class="span12">
+        	<div class="widget ">
+	      			
+	      			<div class="widget-header">
+	      				<i class="icon-user"></i>
+	      				<h3>View / Edit Ticket Details</h3>
+	      				<button class="btn btn-large btn-info pull-right" ng-click="newTicket()"><b>New</b></button>
+	  				</div> <!-- /widget-header -->
+					
+					<div class="widget-content">
+				
+								<form id="edit-profile" class="form-horizontal">
+									<fieldset>
+									<div class="row">
+										<div class="control-group pull-left">											
+											<label class="control-label" for="ticketid">Ticket Id</label>
+											<div class="controls">
+												<input type="text" class="span2" id="ticketid" ng-model="viewTicket.ticket_id" disabled>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="issuedescription">Issue Description</label>
+											<div class="controls">
+												<input type="text" class="span2" id="issuedescription" ng-model="viewTicket.issue_description">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="comments">Comments</label>
+											<div class="controls">
+												<textarea class="span2" id="comments" ng-model="viewTicket.ticket_comments"></textarea>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+									</div>
+									<div class="row">
+										<div class="control-group pull-left">											
+											<label class="control-label" for="firstname">First Name</label>
+											<div class="controls">
+												<input type="text" class="span2" id="firstname" ng-model="viewTicket.first_name">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="lastname">Last Name</label>
+											<div class="controls">
+												<input type="text" class="span2" id="lastname" ng-model="viewTicket.last_name">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="email">Email Id</label>
+											<div class="controls">
+												<input type="email" class="span2" id="email" ng-model="viewTicket.email">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+									</div>
+									<div class="row">
+										<div class="control-group pull-left">											
+											<label class="control-label" for="creatdby">Created By</label>
+											<div class="controls">
+												<input type="text" class="span2" id="creatdby" ng-model="viewTicket.agent_id">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="assignedto">Assigned to</label>
+											<div class="controls">
+												<input type="text" class="span2" id=""assignedto"" ng-model="viewTicket.assigned_to">
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="status">Status</label>
+											<div class="controls">
+												<select ng-model="viewTicket.status">
+												  <option value="open">Open</option>
+												  <option value="reopened">Re-Open</option>
+												  <option value="closed">Closed</option>
+												  <option value="assigned">Assigned</option>
+												</select>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+									</div>
+									
+									</fieldset>
+									
+									<button class="btn btn-success pull-right " ng-click="saveorupdate()">Save</button>
+									<button class="btn btn-danger pull-right " ng-click="clearfields()">Cancel</button>
+									
+									
+								</form>
+					</div>
+							
+			</div>
+        
+        </div>
+      </div>
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /main-inner --> 
+</div>
+<!-- /main -->
+
+<div ng-include  src="'app/common/footer.html'"></div>

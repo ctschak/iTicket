@@ -1,18 +1,18 @@
 mainApp.controller('loginCtrl',
-	['$scope', '$rootScope', '$log', '$state', '$stateParams','loginService', 
-	function ($scope, $rootScope, $log, $state, $stateParams,loginService) {
+	['$scope', '$rootScope', '$log', '$state', '$stateParams','loginService',
+	function ($scope, $rootScope, $log, $state, $stateParams, loginService) {       
     'use strict';
 
     $log.info('+ loginCtrl()');
     $scope.test="ANGULAR TEST";
-    $scope.newui= true;
+    $scope.loginscreen= true;
 
     $scope.login = function ( username, password ) {
 		// Simulate post request to server for authentication //
-		
+    	
 		var credentials = {username:$scope.username,pass:$scope.password};
 		var authServiceURL = "app/test/status.json"; // used json file instead of web service url.
-		
+			
 		var errorFn = function(data){				
 			$rootScope.isAuthenticated = false;	
 			$rootScope.username = "";
@@ -30,7 +30,7 @@ mainApp.controller('loginCtrl',
 				
 				// $location.url("/");
 				
-				$state.go("landing");
+				$state.go("home");
 				
 				/*if (checkIfLoggedIn()){
 

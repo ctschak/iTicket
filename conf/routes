@@ -4,7 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET		/allcustomers				@com.csr.iticket.controllers.CustomerController.getAllCustomers()
+GET		/alltickets				@com.csr.iticket.controllers.CustomerController.getAllTickets()
+GET		/allagents					@com.csr.iticket.controllers.AgentController.getAllAgents()
 
 
 # Map static resources from the /public folder to the /assets URL path
