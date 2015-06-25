@@ -6,17 +6,17 @@ mainApp.controller('loginCtrl',
     $log.info('+ loginCtrl()');
     $scope.test="ANGULAR TEST";
     $scope.loginscreen= true;
-
+    $scope.loginError = false
     $scope.login = function ( username, password ) {
 		// Simulate post request to server for authentication //
     	
 		var credentials = {username:$scope.username,pass:$scope.password};
 		var authServiceURL = "app/test/status.json"; // used json file instead of web service url.
-			
+		//var authServiceURL1 = "/validatelogin/:"+username+"/:"+password; 	
 		var errorFn = function(data){				
 			$rootScope.isAuthenticated = false;	
 			$rootScope.username = "";
-			$scope.loginError = "Invalid username/password combination";
+			$scope.loginError = true;
 		}
 		
 		var successFn = function(data) {			
@@ -25,44 +25,15 @@ mainApp.controller('loginCtrl',
 			
 				$rootScope.isAuthenticated = true;
 				$rootScope.username = credentials.username;
-			//	$cookieStore.put('username',credentials.username);
-			//	$cookieStore.put('isAuthenticated',"true");
-				
-				// $location.url("/");
-				
 				$state.go("home");
-				
-				/*if (checkIfLoggedIn()){
-
-											
-				}else{
-					LocalStore.set('loggedIn','1');																
-				}*/
-				
+								
 			}else{
 				errorFn(data);
 			}
 			
 		}
-		
-		/*function checkIfLoggedIn() {
-			if (LocalStore.get('loggedIn') == '1'){
-				return true;
-			}else{
-				return false;
-			}
-		}*/
-		
 		loginService.login(authServiceURL, credentials).success(successFn).error(errorFn);
 		
   	};
 	
-  	$scope.register = function(){
-  		$state.go("register");
-  	};
-  	
-  	$scope.gotoLogin = function(){
-  		$state.go("login");
-  	};
-
 }]);

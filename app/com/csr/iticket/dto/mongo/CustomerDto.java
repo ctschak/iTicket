@@ -11,12 +11,12 @@ import com.csr.iticket.entities.mongo.Customer;
 public class CustomerDto {
 
 	public String id;
-	public Integer customerId;
-	public String firstName;
-	public String lastName;
+	public Integer customer_id;
+	public String first_name;
+	public String last_name;
 	public String email;
 	public Integer active;
-	public String insertedDate;
+	public String inserted_date;
 	public String phone;
 	public Integer ticket_id;
 	public String issue_description;
@@ -37,7 +37,7 @@ public class CustomerDto {
 		}
 		
 		public Customer fromDto(CustomerDto customerDto){
-			Customer customer = customerDao.findById(customerDto.customerId);
+			Customer customer = customerDao.findById(customerDto.customer_id);
     		mapDtoToEntity(customerDto,customer);
     		return customer;
     	}
@@ -49,12 +49,12 @@ public class CustomerDto {
     	}
     	
     	public void mapDtoToEntity(CustomerDto customerDto, Customer customer){
-    		customer.setCustomer_id(customerDto.customerId);
-    		customer.setFirst_name(customerDto.firstName);
-    		customer.setLast_name(customerDto.lastName);
+    		customer.setCustomer_id(customerDto.customer_id);
+    		customer.setFirst_name(customerDto.first_name);
+    		customer.setLast_name(customerDto.last_name);
     		customer.setEmail(customerDto.email);
     		customer.setActive(customerDto.active);
-    		customer.setInserted_date(customerDto.insertedDate);
+    		customer.setInserted_date(customerDto.inserted_date);
     		customer.setPhone(customerDto.phone);
     		customer.setTicket_id(customerDto.ticket_id);
     		customer.setIssue_description(customerDto.issue_description);
@@ -66,12 +66,12 @@ public class CustomerDto {
     	
     	@Override
     	public void mapEntityToDto(Customer customer,CustomerDto dto){
-    		dto.customerId = customer.getCustomer_id();
-    		dto.firstName = customer.getFirst_name();
-    		dto.lastName = customer.getLast_name();
+    		dto.customer_id = customer.getCustomer_id();
+    		dto.first_name = customer.getFirst_name();
+    		dto.last_name = customer.getLast_name();
     		dto.email = customer.getEmail();
     		dto.active = customer.getActive();
-    		dto.insertedDate = customer.getInserted_date();
+    		dto.inserted_date = customer.getInserted_date();
     		dto.phone = customer.getPhone();
     		dto.id = customer.getId().toString();
     		dto.ticket_id = customer.getTicket_id();

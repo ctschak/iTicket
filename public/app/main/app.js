@@ -27,16 +27,6 @@ mainApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider ) {
             templateUrl: 'app/login/login.tpl.html',
             controller: 'loginCtrl'
         })
-        .state('register', {
-            url: '/register',
-            templateUrl: 'app/login/register.tpl.html',
-            controller: 'loginCtrl'
-        })
-        .state('landing', {
-            url: '/landing',
-            templateUrl: 'app/landing/landing.tpl.html',
-            controller: 'landingCtrl'
-        })
     	;
 
         //Re-directs
@@ -46,11 +36,4 @@ mainApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider ) {
 mainApp.run(function ($log, $rootScope, $state, $urlRouter,$location) { // Inject Service to load data
     $log.debug("mainApp.run");
     $state.transitionTo('home');
-    
-   // $rootScope.$on('$stateChangeStart', ); -- Pass Service.values to load some data
-
-   /* $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-        $log.error('State change error: ', error);
-    });*/
-
 });

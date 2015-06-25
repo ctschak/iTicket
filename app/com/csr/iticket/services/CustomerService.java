@@ -9,6 +9,6 @@ public interface CustomerService {
 	CustomerDto getCustomer(int customerId);
 	List<CustomerDto> getAllTickets();
 	void deleteCustomer(String customerId);
-	void saveCustomer(CustomerDto customerDto);
+	void saveOrUpdateCustomer(CustomerDto customerDto);
 	
 }

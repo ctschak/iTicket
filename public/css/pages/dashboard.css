@@ -53,7 +53,16 @@ Bootstrap Admin Template
 	color: #545454;
 }
 
-
+.shortcuts-spacing{
+	margin: 10px;
+}
+.shortcuts-new-btn{
+	margin: 2px 20px 0 0; 
+}
+.shortcuts-widget-table{
+	//height: 100px !important;
+    overflow: scroll;
+}
 
 /*------------------------------------------------------------------
 [2. Stats / .stats]

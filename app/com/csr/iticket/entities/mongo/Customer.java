@@ -12,17 +12,15 @@ public class Customer {
 	
 	@Id
 	public ObjectId id;
-	@Required
 	public Integer customer_id;
 	@Required
 	public String first_name;
+	@Required
 	public String last_name;
 	@Required
 	public String email;
-	@Required
 	public Integer active;
 	public String inserted_date;
-	@Required
 	public String phone;
 	@Required
 	public Integer ticket_id;

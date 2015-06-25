@@ -37,8 +37,8 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public void saveCustomer(CustomerDto customerDto) {
-		customerDao.createCustomer(dtoMapper.newEntity(customerDto));
+	public void saveOrUpdateCustomer(CustomerDto customerDto) {
+		customerDao.saveOrUpdateCustomer(dtoMapper.newEntity(customerDto));
 		
 	}
 	

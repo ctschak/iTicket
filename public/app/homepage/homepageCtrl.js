@@ -6,8 +6,11 @@ mainApp.controller('homepageCtrl', function ($scope, $rootScope, $log, $state, $
     $scope.test="ANGULAR TEST";
     $scope.loginscreen= false;
     $scope.tickets;
-    $scope.viewTicket;
+    $scope.agents;
+    $scope.viewTicket = {};
     $scope.fieldDisabled = true;
+    $scope.error;
+    
     
     $scope.getTicketDetails = function(){
     	var serviceURL = "/alltickets";
@@ -18,29 +21,43 @@ mainApp.controller('homepageCtrl', function ($scope, $rootScope, $log, $state, $
 			$scope.tickets = data;
 			$state.go("home");   
 		}	
-		homepageService.areaList(serviceURL).success(successFn).error(errorFn);
+		homepageService.getTicketDetails(serviceURL).success(successFn).error(errorFn);   
     }
     
     $scope.saveorupdate = function(){
-    	var serviceURL = "/saveorupdate"
+    	var serviceURL = "/saveorupdate";
     	var errorFn = function(data){				
 			$scope.error = "No Data Found";
 		}
 		var successFn = function(data) {			
-			$scope.tickets = data;
-			$state.go("home");   
+			$scope.viewTicket = data;
+			$scope.getTicketDetails();  
 		}	
-		homepageService.saveorupdate(serviceURL).success(successFn).error(errorFn);
+		homepageService.saveorupdate(serviceURL,$scope.viewTicket).success(successFn).error(errorFn);
     }
-    
+    $scope.viewTicketDetails = function(ticket){
+    	$scope.viewTicket = ticket;
+    }
     $scope.clearfields = function(){
-    	$scope.viewTicket = null;
+    	$scope.viewTicket = {};
     }
     $scope.newTicket = function(){
-    	$scope.viewTicket = null;
+    	$scope.viewTicket = {};
     	$scope.viewTicket.ticket_id = commonServices.getRandomNumber();
     	$scope.fieldDisabled = false;
     }
+    $scope.getAgentInfo = function(){
+    	var serviceURL = "/allagents";
+	    var errorFn = function(data){				
+			$scope.error = "No Data Found";
+		}
+		var successFn = function(data) {			
+			$scope.agents = data;
+		}	
+		homepageService.getAgentDetails(serviceURL).success(successFn).error(errorFn);
+    }
+    $scope.getAgentInfo();
     $scope.getTicketDetails();
+   
    
 });

@@ -48,7 +48,7 @@
           </div>
           <!-- /widget -->
           <div class="span5">
-			  <div class="widget widget-table action-table">
+			  <div class="widget widget-table action-table shortcuts-widget-table">
 	            <div class="widget-header"> <i class="icon-th-list"></i>
 	              <h3>Ticket List</h3>
 	            </div>
@@ -69,7 +69,7 @@
 	                    <td> {{ticket.issue_description}}  </td>
 	                    <td> {{ticket.status}}  </td>
 	                    <td class="td-actions">
-	                    	<a href="javascript:;" class="btn  btn-success" ng-click="viewTicket = ticket;"><i class="btn-icon-only icon-edit "> </i></a>
+	                    	<a href="javascript:;" class="btn  btn-success" ng-click="viewTicketDetails(ticket)"><i class="btn-icon-only icon-edit "> </i></a>
 	                    	<!-- <a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a> --></td>
 	                  </tr>
 	                  
@@ -91,7 +91,7 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>View / Edit Ticket Details</h3>
-	      				<button class="btn btn-large btn-info pull-right" ng-click="newTicket()"><b>New</b></button>
+	      				<button class="btn btn-large btn-info pull-right shortcuts-new-btn" ng-click="newTicket()"><b>New</b></button>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">
@@ -109,7 +109,7 @@
 										<div class="control-group pull-left">											
 											<label class="control-label" for="issuedescription">Issue Description</label>
 											<div class="controls">
-												<input type="text" class="span2" id="issuedescription" ng-model="viewTicket.issue_description">
+												<input type="text" class="span2" id="issuedescription" ng-model="viewTicket.issue_description" required>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										
@@ -124,21 +124,21 @@
 										<div class="control-group pull-left">											
 											<label class="control-label" for="firstname">First Name</label>
 											<div class="controls">
-												<input type="text" class="span2" id="firstname" ng-model="viewTicket.first_name">
+												<input type="text" class="span2" id="firstname" ng-model="viewTicket.first_name" required>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										
 										<div class="control-group pull-left">											
 											<label class="control-label" for="lastname">Last Name</label>
 											<div class="controls">
-												<input type="text" class="span2" id="lastname" ng-model="viewTicket.last_name">
+												<input type="text" class="span2" id="lastname" ng-model="viewTicket.last_name" required>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										
 										<div class="control-group pull-left">											
 											<label class="control-label" for="email">Email Id</label>
 											<div class="controls">
-												<input type="email" class="span2" id="email" ng-model="viewTicket.email">
+												<input type="email" class="span2" id="email" ng-model="viewTicket.email" required>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 									</div>
@@ -146,21 +146,23 @@
 										<div class="control-group pull-left">											
 											<label class="control-label" for="creatdby">Created By</label>
 											<div class="controls">
-												<input type="text" class="span2" id="creatdby" ng-model="viewTicket.agent_id">
+												<!-- <input type="text" class="span2" id="creatdby" ng-model="viewTicket.agent_id" required> -->
+												<select class="span2" ng-options="item.agentId as item.firstName for item in agents" ng-model="viewTicket.agent_id" required/>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										
 										<div class="control-group pull-left">											
 											<label class="control-label" for="assignedto">Assigned to</label>
 											<div class="controls">
-												<input type="text" class="span2" id=""assignedto"" ng-model="viewTicket.assigned_to">
+												<!-- <input type="text" class="span2" id=""assignedto"" ng-model="viewTicket.assigned_to" required> -->
+												<select class="span2" ng-options="item.agentId as item.firstName for item in agents" ng-model="viewTicket.assigned_to" required/>
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										
 										<div class="control-group pull-left">											
 											<label class="control-label" for="status">Status</label>
 											<div class="controls">
-												<select ng-model="viewTicket.status">
+												<select ng-model="viewTicket.status" class="span2" required>
 												  <option value="open">Open</option>
 												  <option value="reopened">Re-Open</option>
 												  <option value="closed">Closed</option>
@@ -169,11 +171,35 @@
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 									</div>
-									
+									<div class="row">
+										<div class="control-group pull-left">											
+											<label class="control-label" for="creatddate">Created Date</label>
+											<div class="controls">
+												<input type="text" class="span2" id="creatddate" ng-model="viewTicket.inserted_date" placeholder="mm/dd/yyyy">
+											</div> <!-- /controls -->	
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="phone">Contact Number</label>
+											<div class="controls">
+												<input type="text" class="span2" id="phone" ng-model="viewTicket.phone" >
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="active">Active User</label>
+											<div class="controls">
+												<select ng-model="viewTicket.active" class="span2">
+												  <option value="1">Yes</option>
+												  <option value="0">No</option>
+												</select>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+									</div>
 									</fieldset>
 									
-									<button class="btn btn-success pull-right " ng-click="saveorupdate()">Save</button>
-									<button class="btn btn-danger pull-right " ng-click="clearfields()">Cancel</button>
+									<button class="btn btn-success pull-right shortcuts-spacing" ng-click="saveorupdate()">Save</button>
+									<button class="btn btn-danger pull-right shortcuts-spacing" ng-click="clearfields()">Cancel</button>
 									
 									
 								</form>

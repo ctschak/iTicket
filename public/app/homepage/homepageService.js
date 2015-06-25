@@ -1,11 +1,18 @@
 mainApp.factory('homepageService', ['$http', function ($http) {	
 	'use strict';
 	return {
-		 areaList: function (url) {
+		 getTicketDetails: function (url) {
 			  return $http.get(url);
 		 },
-		 locationList: function (url) {
+		 getAgentDetails: function (url) {
 			  return $http.get(url);
+		 },  
+		 saveorupdate: function (url,data) {
+			  return $http.post(url,data,{
+				  headers: {
+					   'Content-Type': 'application/json'
+					 }
+			  });
 		 }
 	};	
 }]);

@@ -21,7 +21,11 @@
 						<label for="password">Password:</label>
 						<input type="password" id="password" ng-model="password" value="" placeholder="Password" class="login password-field" required/>
 					</div> <!-- /password -->
-					
+						
+					<div class="alert" ng-show="loginError">
+	                	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	                    <strong>Invalid username/password!!</strong>
+	                </div>
 				</div> <!-- /login-fields -->
 				
 				<div class="login-actions">

@@ -30,8 +30,15 @@ public class CustomerDao {
 		return null;
 	}
 
-	public void createCustomer(Customer Customer) {
-		MorphiaObject.datastore.save(Customer);
+	public void saveOrUpdateCustomer(Customer customer) {
+		Customer retrive = MorphiaObject.datastore.find(Customer.class)
+				.field("ticket_id").equal(customer.getTicket_id()).get();
+		if (retrive == null) {
+			MorphiaObject.datastore.save(customer);
+		}else{
+			customer.setId(retrive.getId());
+			MorphiaObject.datastore.save(customer);
+		}
 	}
 
 	public void deleteCustomer(String id) {
