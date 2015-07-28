@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 /**
  * Provides a JPA EntityManager.
  * 
- * @author Chakravarthy Ravichandran
+ * @author Aboo Salimon
  *
  */
 public interface EntityManagerProvider {

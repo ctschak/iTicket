@@ -39,6 +39,8 @@ public class CustomerDao {
 			customer.setId(retrive.getId());
 			MorphiaObject.datastore.save(customer);
 		}
+		
+		
 	}
 
 	public void deleteCustomer(String id) {

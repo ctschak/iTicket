@@ -1,3 +1,4 @@
+[
 {
 	"customer_id": 1,
 	"first_name": "Aboo",
@@ -13,3 +14,4 @@
 	"assigned_to": 3308,
 	"status": "open"
 }
+]

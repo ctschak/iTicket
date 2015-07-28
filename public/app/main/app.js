@@ -27,6 +27,16 @@ mainApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider ) {
             templateUrl: 'app/login/login.tpl.html',
             controller: 'loginCtrl'
         })
+        .state('user', {
+            url: '/user',
+            templateUrl: 'app/userpage/userpage.tpl.html',
+            controller: 'userpageCtrl'
+        })
+        .state('report', {
+            url: '/report',
+            templateUrl: 'app/reportpage/reportpage.tpl.html',
+            controller: 'reportpageCtrl'
+        })
     	;
 
         //Re-directs

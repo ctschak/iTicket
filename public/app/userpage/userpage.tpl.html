@@ -1,0 +1,53 @@
+<div ng-include  src="'app/common/header.html'"></div>
+<div ng-include  src="'app/common/header-navigation.html'"></div>
+
+	<div class="widget-content">
+				
+								<form id="edit-profile" class="form-horizontal">
+									<fieldset>
+									
+									<div class="row">
+										<div class="control-group pull-left">											
+											<label class="control-label" for="firstname">First Name</label>
+											<div class="controls">
+												<input type="text" class="span2" id="firstname" ng-model="userDetail.first_name" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="lastname">Last Name</label>
+											<div class="controls">
+												<input type="text" class="span2" id="lastname" ng-model="userDetail.last_name" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										<div class="control-group pull-left">											
+											<label class="control-label" for="lastname">User Name</label>
+											<div class="controls">
+												<input type="text" class="span2" id="username" ng-model="userDetail.user_name" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										<div class="control-group pull-left">											
+											<label class="control-label" for="password">Last Name</label>
+											<div class="controls">
+												<input type="text" class="span2" id="password" ng-model="userDetail.pass_word" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+										
+										<div class="control-group pull-left">											
+											<label class="control-label" for="email">Email Id</label>
+											<div class="controls">
+												<input type="email" class="span2" id="email" ng-model="userDetail.email" required>
+											</div> <!-- /controls -->				
+										</div> <!-- /control-group -->
+									</div>
+									</div>
+									</fieldset>
+									
+									<button class="btn btn-success pull-right shortcuts-spacing" ng-click="saveorupdate()">Save</button>
+									<button class="btn btn-danger pull-right shortcuts-spacing" ng-click="clearfields()">Cancel</button>
+									
+									
+								</form>
+					</div>
+
+<div ng-include  src="'app/common/footer.html'"></div>

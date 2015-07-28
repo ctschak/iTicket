@@ -7,6 +7,7 @@ GET     /                          		controllers.Application.index()
 GET		/alltickets						@com.csr.iticket.controllers.CustomerController.getAllTickets()
 GET		/allagents						@com.csr.iticket.controllers.AgentController.getAllAgents()
 POST	/saveorupdate					@com.csr.iticket.controllers.CustomerController.saveorupdate()
+POST    /saveorupdateuser               @com.csr.iticket.controllers.UserController.saveorupdate()
 POST	/validatelogin/:uname/:pass 	@com.csr.iticket.controllers.AgentController.validateLogin(uname: String, pass: String)
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file             			controllers.Assets.at(path="/public", file)
