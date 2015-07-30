@@ -14,6 +14,7 @@ public class UserDto {
 	public String last_name;	
 	public String email;	
 	public String pass_word;
+	public String user_name;
 	
 	
 
@@ -46,6 +47,7 @@ public class UserDto {
     		user.setFirst_name(userDto.first_name);
     		user.setLast_name(userDto.last_name);
     		user.setPass_word(userDto.pass_word);
+    		user.setUser_name(userDto.user_name);
     	
     	}
     	
@@ -57,6 +59,7 @@ public class UserDto {
     		dto.email = user.getEmail();
     		dto.pass_word = user.getPass_word();
     		dto.user_id = user.getUser_id();
+    		dto.user_name = user.getUser_name();
     		
     	}
 

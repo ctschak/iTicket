@@ -1,9 +1,11 @@
 package com.csr.iticket.dao;
 
 
+import org.springframework.stereotype.Component;
+
 import com.csr.iticket.entities.mongo.User;
 import com.csr.iticket.framework.MorphiaObject;
-
+@Component
 public class UserDao {
 	
 	
