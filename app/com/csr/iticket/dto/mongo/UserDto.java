@@ -1,6 +1,11 @@
 package com.csr.iticket.dto.mongo;
 
-import play.data.validation.Constraints.Required;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.csr.iticket.dao.UserDao;
+import com.csr.iticket.dto.DtoMapper;
+import com.csr.iticket.entities.mongo.User;
+
 
 public class UserDto {
 	
@@ -11,36 +16,53 @@ public class UserDto {
 	public String pass_word;
 	
 	
-	public Integer getUser_id() {
-		return user_id;
+
+	@Component
+    public static class Mapper extends DtoMapper<User, UserDto>{
+		
+		@Autowired
+		UserDao userDao;
+		
+		@Override
+		public UserDto newDto(){
+			return new UserDto();
+		}
+		
+		public User fromDto(UserDto userDto){
+			User user = userDao.findById(userDto.user_id);
+    		mapDtoToEntity(userDto,user);
+    		return user;
+    	}
+    	
+    	public User newEntity(UserDto userDto){
+    		User user = new User();
+    		mapDtoToEntity(userDto,user);
+    		return user;
+    	}
+    	
+    	public void mapDtoToEntity(UserDto userDto, User user){
+    		user.setEmail(userDto.email);
+    		user.setUser_id(userDto.user_id);
+    		user.setFirst_name(userDto.first_name);
+    		user.setLast_name(userDto.last_name);
+    		user.setPass_word(userDto.pass_word);
+    	
+    	}
+    	
+    	@Override
+    	public void mapEntityToDto(User user,UserDto dto){
+    		
+    		dto.first_name = user.getFirst_name();
+    		dto.last_name = user.getLast_name();
+    		dto.email = user.getEmail();
+    		dto.pass_word = user.getPass_word();
+    		dto.user_id = user.getUser_id();
+    		
+    	}
+
+		
 	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
-	}
-	public String getFirst_name() {
-		return first_name;
-	}
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-	public String getLast_name() {
-		return last_name;
-	}
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPass_word() {
-		return pass_word;
-	}
-	public void setPass_word(String pass_word) {
-		this.pass_word = pass_word;
-	}
+	
 	
 	
 	

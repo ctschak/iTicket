@@ -113,8 +113,7 @@ public class Global extends GlobalSettings {
 		    MorphiaObject.morphia = new Morphia();
 		    MorphiaObject.datastore = MorphiaObject.morphia.createDatastore(MorphiaObject.mongo, "csrdb");
 		    MorphiaObject.datastore.ensureIndexes();   
-		    MorphiaObject.datastore.ensureCaps();  
-
+		    MorphiaObject.datastore.ensureCaps();
 		    Logger.debug("** Morphia datastore: " + MorphiaObject.datastore.getDB());
 	}
 
