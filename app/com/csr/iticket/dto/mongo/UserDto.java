@@ -2,6 +2,7 @@ package com.csr.iticket.dto.mongo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.csr.iticket.dao.UserDao;
 import com.csr.iticket.dto.DtoMapper;
 import com.csr.iticket.entities.mongo.User;
@@ -9,12 +10,15 @@ import com.csr.iticket.entities.mongo.User;
 
 public class UserDto {
 	
+	public String id;
 	public Integer user_id;
 	public String first_name;	
-	public String last_name;	
-	public String email;	
-	public String pass_word;
+	public String last_name;
 	public String user_name;
+	public String pass_word;
+	public String email;	
+	
+	
 	
 	
 

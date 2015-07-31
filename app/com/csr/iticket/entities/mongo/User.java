@@ -65,6 +65,11 @@ public class User {
 		this.pass_word = pass_word;
 	}
 	
+	@Override
+	  public String toString() {
+	    return user_name + ":" + first_name;
+	  }
+	
 	
 
 }
