@@ -9,5 +9,21 @@ GET		/allagents						@com.csr.iticket.controllers.AgentController.getAllAgents()
 POST	/saveorupdate					@com.csr.iticket.controllers.CustomerController.saveorupdate()
 POST    /saveorupdateuser               @com.csr.iticket.controllers.UserController.saveorupdate()
 POST	/validatelogin/:uname/:pass 	@com.csr.iticket.controllers.AgentController.validateLogin(uname: String, pass: String)
+GET     /alltimeslotinfo                @com.csr.iticket.controllers.TimeSlotController.getCurrentTimeSlotInfo()
+
+
+
+
+
+
+
+
+
 # Map static resources from the /public folder to the /assets URL path
-GET     /*file             			controllers.Assets.at(path="/public", file)
+GET     /*file             			    controllers.Assets.at(path="/public", file)
+#Time slot
+
+
+
+
+

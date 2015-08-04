@@ -1,6 +1,6 @@
 
 var mainApp = angular.module("mainApp",[
-	'ngTable',
+	'ngTable','ngMessages',
 	'ngResource',
     'ui.router'
 ]);

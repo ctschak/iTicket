@@ -3,14 +3,20 @@
 
 	<div class="widget-content">
 				
-								<form id="edit-profile" class="form-horizontal">
+								<form id="edit-profile" name="userForm" class="form-horizontal">
 									<fieldset>
 									
 									<div class="row">
 										<div class="control-group pull-left">											
 											<label class="control-label" for="firstname">First Name</label>
 											<div class="controls">
-												<input type="text" class="span2" id="firstname" ng-model="userDetail.first_name" required>
+												<input type="text" class="span2" name="first" id="firstname" ng-minlength="3"  ng-maxlength="8" ng-model="userDetail.first_name"  required>
+												 <div ng-messages="userForm.first.$error">
+        <p ng-message="minlength">Your name is too short.</p>
+        <p ng-message="maxlength">Your name is too long.</p>
+        <p ng-message="required">Your name is required.</p>
+    </div>
+      
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										
@@ -27,7 +33,7 @@
 											</div> <!-- /controls -->				
 										</div> <!-- /control-group -->
 										<div class="control-group pull-left">											
-											<label class="control-label" for="password">Last Name</label>
+											<label class="control-label" for="password">Password</label>
 											<div class="controls">
 												<input type="text" class="span2" id="password" ng-model="userDetail.pass_word" required>
 											</div> <!-- /controls -->				
@@ -43,7 +49,7 @@
 									</div>
 									</fieldset>
 									
-									<button class="btn btn-success pull-right shortcuts-spacing" ng-click="saveorupdate()">Save</button>
+									<button class="btn btn-success pull-right shortcuts-spacing" ng-disabled="(userDetail.first_name && userDetail.last_name && userDetail.user_name) ?  false : true" ng-click="saveorupdate()">Save</button>
 									<button class="btn btn-danger pull-right shortcuts-spacing" ng-click="clearfields()">Cancel</button>
 									
 									
