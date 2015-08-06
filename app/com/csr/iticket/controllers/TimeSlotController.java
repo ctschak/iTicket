@@ -4,7 +4,9 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import play.api.mvc.Controller;
 import play.libs.Json;
+
 
 
 import com.csr.iticket.structure.TimeSlotInfo;
@@ -19,7 +21,7 @@ import play.mvc.Result;
 
 
 @Component
-public class TimeSlotController {
+public class TimeSlotController implements Controller {
 	
 	/**
 	 * 
