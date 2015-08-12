@@ -1,0 +1,13 @@
+[{
+	"agent_id": 3307,
+	"first_name": "Agent1",
+	"last_name": "test1",
+	"user_name": "agent1",
+	"password": "123456",
+	"email": "agent1@xxx.com",
+	"active": 1,
+	"inserted_date": "2015-05-09",
+	"phone": "8121612396"
+	
+}
+]

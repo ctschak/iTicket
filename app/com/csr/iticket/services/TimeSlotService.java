@@ -1,5 +1,11 @@
 package com.csr.iticket.services;
 
-public interface TimeSlotService {
+import org.springframework.stereotype.Component;
 
+import com.csr.iticket.dto.mongo.SlotBookingDto;
+
+public interface TimeSlotService {
+	
+	public void bookingStore(SlotBookingDto slotBookingDto);
+	
 }

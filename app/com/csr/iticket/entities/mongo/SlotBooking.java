@@ -11,13 +11,13 @@ public class SlotBooking {
 	
 	@Id
 	public ObjectId id;
-	public Integer slot_id;
+	public Integer slot_booking_id;
 	@Required
 	public String slot_date;
 	@Required
-	public String time_from;
+	public String booking_time_from;
 	@Required
-	public String time_to;
+	public String booking_time_to;
 	@Required
 	public List<Item> items;
 	
@@ -28,11 +28,12 @@ public class SlotBooking {
 	public void setId(ObjectId id) {
 		this.id = id;
 	}
-	public Integer getSlot_id() {
-		return slot_id;
+	
+	public Integer getSlot_booking_id() {
+		return slot_booking_id;
 	}
-	public void setSlot_id(Integer slot_id) {
-		this.slot_id = slot_id;
+	public void setSlot_booking_id(Integer slot_booking_id) {
+		this.slot_booking_id = slot_booking_id;
 	}
 	public String getSlot_date() {
 		return slot_date;
@@ -40,17 +41,18 @@ public class SlotBooking {
 	public void setSlot_date(String slot_date) {
 		this.slot_date = slot_date;
 	}
-	public String getTime_from() {
-		return time_from;
+	
+	public String getBooking_time_from() {
+		return booking_time_from;
 	}
-	public void setTime_from(String time_from) {
-		this.time_from = time_from;
+	public void setBooking_time_from(String booking_time_from) {
+		this.booking_time_from = booking_time_from;
 	}
-	public String getTime_to() {
-		return time_to;
+	public String getBooking_time_to() {
+		return booking_time_to;
 	}
-	public void setTime_to(String time_to) {
-		this.time_to = time_to;
+	public void setBooking_time_to(String booking_time_to) {
+		this.booking_time_to = booking_time_to;
 	}
 	public List<Item> getItems() {
 		return items;
