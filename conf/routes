@@ -14,7 +14,9 @@ POST	/validatelogin/:uname/:pass 	@com.csr.iticket.controllers.AgentController.v
 POST    /saveorupdateuser               @com.csr.iticket.controllers.UserController.saveorupdate()
 #Slot Booking
 GET     /alltimeslotinfo                @com.csr.iticket.controllers.TimeSlotController.getCurrentTimeSlotInfo()
-POST    /slotbookitem                   @com.csr.iticket.controllers.TimeSlotController.slotBookItem()
+GET     /slotbookitem                   @com.csr.iticket.controllers.TimeSlotController.slotBookItem()
+GET     /allbookinglist                 @com.csr.iticket.controllers.TimeSlotController.getAllSlotBooking()
+GET    /bookCartoon/:quantity           @com.csr.iticket.controllers.TimeSlotController.bookCarton(quantity: Integer)
 
 
 # Map static resources from the /public folder to the /assets URL path

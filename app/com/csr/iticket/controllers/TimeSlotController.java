@@ -7,19 +7,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import play.api.mvc.Controller;
+import play.mvc.Controller;
 import play.libs.Json;
-
-
-
-
-
-
-
-
-
 import com.csr.iticket.dto.mongo.SlotBookingDto;
 import com.csr.iticket.entities.mongo.Item;
+import com.csr.iticket.entities.mongo.SlotBooking;
 import com.csr.iticket.services.TimeSlotService;
 import com.csr.iticket.structure.TimeSlotInfo;
 import com.csr.iticket.util.DateUtil;
@@ -33,7 +25,7 @@ import play.mvc.Result;
 
 
 @Component
-public class TimeSlotController extends play.mvc.Controller {
+public class TimeSlotController extends Controller {
 	
 	@Autowired
 	TimeSlotService timeSlotService;
@@ -53,6 +45,12 @@ public class TimeSlotController extends play.mvc.Controller {
 		result.put("slotavinfo", timeslot);
 		return ok(Json.toJson(result));	
 	}
+	
+	public Result test(){
+	System.out.println("i am in test");
+	return ok();
+	}
+
 	
 	/**?
 	 * 
@@ -81,7 +79,17 @@ public class TimeSlotController extends play.mvc.Controller {
 	 
 	timeSlotService.bookingStore(slotBookingDto);
 	 
-	return ok();	
+	return ok(Json.toJson("sucess"));	
+	}
+	
+	
+	public Result getAllSlotBooking(){		
+		return ok(Json.toJson(timeSlotService.getBookingList()));
+	}
+	
+	public Result bookCarton(Integer value){
+		System.out.println("hello value "+value);
+		return ok(Json.toJson("sucess"));
 	}
 	
 	
